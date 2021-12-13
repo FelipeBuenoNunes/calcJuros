@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juros</title>
+    <link rel="stylesheet" href="set-style.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Juros é aqui</h1>
+        </hgroup>
+        <nav>
+            <a>Home</a>
+            <a>Sobre</a>
+            <a>Cadastrar</a>
+        </nav>
+    </header>
+    <p>Objetivo desse website é calcular os juros de seus clientes!</p>
+    <main>
+        <form>
+            <input type="text" class="register" />
+            <input type="date" class="register" />
+            <input type="number" class="register" />
+            <input type="button" value="Cadastrar" onclick="cadastro()" />
+            <input type="button" value="Calcular Juros" onclick="calc()" />
+        </form>
+        <table id="table">
+            <tr id="headerTable">
+                <th>Nome do cliente</th>
+                <th>Data do vencimento</th>
+                <th>Valor da compra</th>
+                <th>Juros</th>
+                <th>Total</th>
+            </tr>
+        </table>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
