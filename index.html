@@ -27,12 +27,15 @@
             <input type="number" class="register" />
             <input type="button" value="Cadastrar" onclick="cadastro()" />
             <input type="button" value="Calcular Juros" onclick="calc()" />
+            <input type="button" value="Agrupar por cliente" onclick="orden(clients, 'nameClient')" />
+            <input type="button" value="Agrupor por data" onclick="orden(clients, 'days')" />
         </form>
         <table id="table">
             <tr id="headerTable">
                 <th>Nome do cliente</th>
                 <th>Data do vencimento</th>
                 <th>Valor da compra</th>
+                <th>Dias</th>
                 <th>Juros</th>
                 <th>Total</th>
             </tr>
