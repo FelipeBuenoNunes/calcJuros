@@ -86,11 +86,6 @@ function orden(arr, item){
     ola = Object.values(ord);
     console.log(ord);
     let x = [];
-    // for(let i = 0; i < Object.values(ord).length; i++){
-    //     for(let j = 0; j < Object.values(ord)[i].length; j++){
-    //         console.log(Object.values(ord)[i][j]);
-    //     }
-    // }
     Object.values(ord).forEach(
         (elem) => {
             elem.forEach(
@@ -100,21 +95,65 @@ function orden(arr, item){
             );
         }
     );
-    console.log("X");
-    console.log(x);
     print(x);
 }
 
-function ordenar(arr, item){
-    let teste =  arr.reduce(
-        (acc, cur) =>   {
-            let x = cur[item];
-            if(!acc[x]){
-                acc[x] = [];
-            }
-            acc[x].push(cur);
-            return acc;
-        },{}
+function teste2(itenA, itenB){
+    return itenA.nameClient < itenB.nameClient ? -1 : itenA.nameClient > itenB.nameClient ? 1 : 0;
+}
+
+function teste4(itenA, itenB){
+    return itenA.days < itenB.days ? -1 : itenA.days > itenB.days ? 1 : 0;
+}
+
+function testando(){
+    const x = clients.slice();
+    x.sort(teste2);
+    ordenar();
+    print(x);
+}
+
+function testao(){
+    const x = clients.slice();
+    x.sort(teste4);
+    print(x);
+}
+
+function testinho(acc, cur){
+    let x = cur["nameClient"];
+    if(!acc[x])
+        acc[x] = {nameClient: x, cont: 0};
+    acc[x].cont += parseFloat(cur["all"]);
+
+    return acc;
+}
+
+function ordenar(){
+    const arrClient = clients.reduce(testinho, {});
+    console.log(arrClient);
+    let table = document.querySelector(".tableLast");
+    if(!table){
+        table = document.createElement("table");
+        table.className = "tableLast";
+    }else{
+        
+    }
+    table.innerHTML = `<tr id="headerTable">
+    <th>Nome do cliente</th>
+    <th>Valor a pagar</th>
+    </tr>
+    `;
+    Object.values(arrClient).forEach(
+        (elem) => {
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
+            td.innerText = elem.nameClient;
+            let td2 = document.createElement("td");
+            td2.innerText = elem.cont.toFixed(2);
+            tr.appendChild(td);
+            tr.appendChild(td2);
+            table.appendChild(tr);
+        }
     );
-    return teste;
+    document.querySelector("main").appendChild(table);
 }
